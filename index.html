@@ -40,7 +40,7 @@
             
             <div   ng-controller="buycontroller as tobuy">
                 <h1>Shopping List Check Off</h1>
-                <h2 >To Buy list:</h2>
+                <h2 >To Buy:</h2>
                 <ul >
                     <li  ng-repeat="item in tobuy.items" >  &nbsp; Buy {{item.quantity}} {{item.name}}
                         &nbsp; <button  ng-click="tobuy.buyItem($index)">    Buy</button>
@@ -51,7 +51,7 @@
            
             <!-- Already Bought List -->
             <div class="split right" ng-controller="boughtcont as bought">
-                <br><br><br> <h2 >Already Bought list:</h2>
+                <br><br><br> <h2 >Already Bought:</h2>
                 <ul >
                     <li  ng-repeat="item in bought.items">&nbsp; Bought {{item.quantity}} {{item.name}}</li>
                 </ul>
