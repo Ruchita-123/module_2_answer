@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shoppingapp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping List Check Off</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="app.js"></script>
+<style>
+   .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+      .border{ background: rgb(235, 221, 24);
+  border: 1px solid black;
+  }
+ 
+
+</style>
+</head>
+
+<body>
+    <div class="border" >
+        
+        <div >
+            <!-- To Buy List -->
+            
+            <div   ng-controller="buycontroller as tobuy">
+                <h1>Shopping List Check Off</h1>
+                <h2 >To Buy list:</h2>
+                <ul >
+                    <li  ng-repeat="item in tobuy.items" >  &nbsp; Buy {{item.quantity}} {{item.name}}
+                        &nbsp; <button  ng-click="tobuy.buyItem($index)">    Buy</button>
+                    </li>
+                </ul>
+                <div ng-if="tobuy.items.length == 0" >Everything is bought!</div>
+            </div>
+           
+            <!-- Already Bought List -->
+            <div class="split right" ng-controller="boughtcont as bought">
+                <br><br><br> <h2 >Already Bought list:</h2>
+                <ul >
+                    <li  ng-repeat="item in bought.items">&nbsp; Bought {{item.quantity}} {{item.name}}</li>
+                </ul>
+                <div ng-if="bought.items.length == 0" class="emptyMessage">Nothing bought yet.</div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
